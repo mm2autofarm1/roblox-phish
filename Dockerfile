@@ -1,7 +1,7 @@
 FROM php:8.2-apache
 
-# Disable all MPMs and enable only prefork (compatible with PHP)
-RUN a2dismod mpm_event mpm_worker && \
+# Remove all existing MPM modules and enable only prefork
+RUN rm -f /etc/apache2/mods-enabled/mpm_*.load && \
     a2enmod mpm_prefork && \
     a2enmod rewrite
 
