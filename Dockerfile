@@ -1,12 +1,18 @@
 FROM php:8.2-apache
 
-# Remove all existing MPM modules and enable only prefork
-RUN rm -f /etc/apache2/mods-enabled/mpm_*.load && \
+RUN apt-get update && apt-get install -y \
+    && rm -rf /var/lib/apt/lists/*
+
+# Disable conflicting MPMs, enable only prefork
+RUN a2dismod mpm_event mpm_worker 2>/dev/null || true && \
     a2enmod mpm_prefork && \
     a2enmod rewrite
 
 COPY . /var/www/html/
 
-RUN chown -R www-data:www-data /var/www/html
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 755 /var/www/html
 
 EXPOSE 80
+
+CMD ["apache2-foreground"]
